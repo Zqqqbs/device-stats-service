@@ -25,6 +25,19 @@ https://github.com/Zqqqbs/device-stats-service/
 - **Locust**: для нагрузочного тестирования.
 - **Docker и Docker Compose**: для контейнеризации и упрощения запуска.
 
+## Зависимости
+
+- fastapi==0.68.0
+- uvicorn==0.15.0
+- sqlalchemy==1.4.23
+- pydantic==1.8.2
+- celery==5.2.7
+- redis==4.0.2
+- numpy==1.21.2
+- Jinja2==3.0.3
+- python-multipart==0.0.9
+- locust==2.20.2
+
 ## Структура проекта
 
 - `app/` — основная директория приложения:
@@ -42,9 +55,21 @@ https://github.com/Zqqqbs/device-stats-service/
 - `Dockerfile` — Dockerfile для сборки контейнеров.
 - `requirements.txt` — зависимости проекта.
 
-## Установка и запуск
-
-### Требования
+## Требования
 
 - Установленный [Docker](https://docs.docker.com/get-docker/) и [Docker Compose](https://docs.docker.com/compose/install/).
 - (Опционально) Python 3.9+ и виртуальное окружение для запуска Locust локально.
+
+## Установки и запуск
+- Убедитесь, что у вас установлены Docker и Docker Compose.
+- Запустите сервис с помощью Docker Compose:  docker-compose up --build
+- После запуска сервис будет доступен по адресу `http://localhost:8000/docs`.
+  
+## Эндпоинты API
+- **POST /users/**: Добавить пользователя.
+- **POST /devices/{device_id}/stats**: Добавить данные устройства.
+- **GET /devices/{device_id}/analytics**: Получить аналитику устройства за всё время.
+- **GET /devices/{device_id}/analytics/period**: Получить аналитику устройства за период.
+- **GET /users/{user_id}/analytics**: Получить агрегированную аналитику пользователя.
+- **GET /users/{user_id}/devices-analytics**: Получить аналитику по всем устройствам пользователя.
+
