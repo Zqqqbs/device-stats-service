@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+      - .:/data
+    depends_on:
+      - redis
+  redis:
+    image: redis:6
+  celery:
+    build: .
+    command: celery -A tasks worker --loglevel=info
+    volumes:
+      - ./app:/app
+      - .:/data
+    depends_on:
+      - redis
