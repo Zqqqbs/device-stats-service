@@ -14,6 +14,7 @@
 
 Проект размещён на GitHub. Ссылка на репозиторий:
 
+https://github.com/Zqqqbs/device-stats-service/
 
 ## Технологии
 
